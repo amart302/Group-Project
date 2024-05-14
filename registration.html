@@ -74,44 +74,44 @@
       let userId = 0;
 
       const users = [];
-      document.getElementById("registrationForm").addEventListener("submit", function (event) {
+
+      function addUser() {
+        let username = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        const localUsers = JSON.parse(localStorage.getItem("users"));
+        for (let i = 0; i < localUsers.length; i++) {
+          const user = {
+            id: userId,
+            username: username,
+            email: email,
+            password: password,
+          };
+          users.push(user);
+          userId++;
+          alert(
+            `Регистрация успешна! \n \n Имя пользователя: ${username} \n Email: ${email}`
+          );
+          localStorage.setItem("users", JSON.stringify(users));
+          document.getElementById("registrationForm").reset();
+        }
+      }
+
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
           event.preventDefault();
 
-          let username = document.getElementById("username").value;
-          let email = document.getElementById("email").value;
-          let password = document.getElementById("password").value;
-
-          if(users.length == 0){
-            console.log(true);
-              const user = {
-                id: userId,
-                username: username,
-                email: email,
-                password: password,
-              };
-              users.push(user);
-              userId++;
-              alert(`Регистрация успешна! \n \n Имя пользователя: ${username} \n Email: ${email}`);
-              document.getElementById("registrationForm").reset(); 
-          }else{
-            for (let i = 0; i < users.length; i++) {
-            if (users[i].username == username) {
-              alert("Выберите другое имя");
-              document.getElementById("registrationForm").reset();
-            } else {
-              console.log(true);
-              const user = {
-                id: userId,
-                username: username,
-                email: email,
-                password: password,
-              };
-              users.push(user);
-              userId++;
-              alert(`Регистрация успешна! \n \n Имя пользователя: ${username} \n Email: ${email}`);
-              document.getElementById("registrationForm").reset(); 
+          if (users.length == 0) {
+            addUser();
+          } else {
+                // alert("Выберите другое имя");
+                // document.getElementById("registrationForm").reset();
+                // addUser();
+                // break;
+              }
             }
-          }
           }
         });
     </script>
