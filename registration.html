@@ -71,29 +71,34 @@
     </form>
 
     <script>
-      let userId = 0;
-
       const users = [];
 
+      const username = document.getElementById("username");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      
       function addUser() {
-        let username = document.getElementById("username").value;
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
-
-        const localUsers = JSON.parse(localStorage.getItem("users"));
+        const localUsers = JSON.parse(sessionStorage.getItem("users"));
+        let userId = users.length + 1;
+        let checkUser = false;
         for (let i = 0; i < localUsers.length; i++) {
+          if (localUsers[i].username == username.value) {
+            alert("Выберите другое имя пользователя");
+            checkUser = true;
+          }
+        }
+        if (!checkUser) {
           const user = {
             id: userId,
-            username: username,
-            email: email,
-            password: password,
+            username: username.value,
+            email: email.value,
+            password: password.value,
           };
           users.push(user);
-          userId++;
           alert(
-            `Регистрация успешна! \n \n Имя пользователя: ${username} \n Email: ${email}`
+            `Регистрация успешна! \n \n Имя пользователя: ${username.value} \n Email: ${email.value}`
           );
-          localStorage.setItem("users", JSON.stringify(users));
+          sessionStorage.setItem("users", JSON.stringify(users));
           document.getElementById("registrationForm").reset();
         }
       }
@@ -102,16 +107,23 @@
         .getElementById("registrationForm")
         .addEventListener("submit", function (event) {
           event.preventDefault();
+          let userId = users.length + 1;
 
           if (users.length == 0) {
-            addUser();
+            const user = {
+              id: userId,
+              username: username.value,
+            email: email.value,
+              password: password.value,
+            };
+            users.push(user);
+            alert(
+              `Регистрация успешна! \n \n Имя пользователя: ${username.value} \n Email: ${email.value}`
+            );
+            sessionStorage.setItem("users", JSON.stringify(users));
+            document.getElementById("registrationForm").reset();
           } else {
-                // alert("Выберите другое имя");
-                // document.getElementById("registrationForm").reset();
-                // addUser();
-                // break;
-              }
-            }
+            addUser();
           }
         });
     </script>
