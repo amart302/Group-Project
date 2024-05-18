@@ -199,7 +199,7 @@
             />
           </div>
           <span id="entranceError"></span>
-          <a href="/registration.html" id="forgetPassword">Забыли пароль ?</a>
+          <a href="" id="forgetPassword">Забыли пароль ?</a>
           <button type="submit">Войти</button>
         </form>
       </div>
@@ -246,7 +246,7 @@
         );
 
         // window.location.replace("/main.html");
-        window.location.href = "/main.html";
+        window.location.href = "./main.html";
 
         localStorage.setItem("users", JSON.stringify(users));
         registError.innerHTML = "";
@@ -300,7 +300,7 @@
 
           if (checkUser) {
             // window.location.replace("/main.html");
-            window.location.href = "/main.html";
+            window.location.href = "./main.html";
 
             entranceError.innerHTML = "";
             registError.innerHTML = "";
