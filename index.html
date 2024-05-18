@@ -165,7 +165,7 @@
     </style>
   </head>
   <body>
-    <img class="background" src="/registImg/Background Image.png" alt="" />
+    <img class="background" src="./registImg/Background Image.png" alt="" />
     <div class="formsParentBlock">
       <div class="formNames">
         <h2 id="registration">Регистрация</h2>
@@ -180,7 +180,7 @@
           <label for="password">Пароль:</label>
           <div class="passwordBlock">
             <input type="password" id="registPassword" required />
-            <img id="registPasswordOpen" src="/registImg/eyeOpen.svg" alt="" />
+            <img id="registPasswordOpen" src="./registImg/eyeOpen.svg" alt="" />
           </div>
           <button type="submit">Зарегистрироваться</button>
           <span id="registError"></span>
@@ -194,7 +194,7 @@
             <input type="password" id="entrancePassword" required />
             <img
               id="entrancePasswordOpen"
-              src="/registImg/eyeOpen.svg"
+              src="./registImg/eyeOpen.svg"
               alt=""
             />
           </div>
@@ -324,7 +324,7 @@
           entrancePasswordOpen.src = "/registImg/eyeClose.svg";
         } else {
           entrancePassword.type = "password";
-          entrancePasswordOpen.src = "/registImg/eyeOpen.svg";
+          entrancePasswordOpen.src = "./registImg/eyeOpen.svg";
         }
       });
       registPasswordOpen.addEventListener("click", () => {
@@ -333,7 +333,7 @@
           registPasswordOpen.src = "/registImg/eyeClose.svg";
         } else {
           registPassword.type = "password";
-          registPasswordOpen.src = "/registImg/eyeOpen.svg";
+          registPasswordOpen.src = "./registImg/eyeOpen.svg";
         }
       });
       //*Open/Close password*//
