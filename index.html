@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organick | registration/authorization</title>
+    <!-- -------------- Favicon -------------- -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ------------- Google Fonts -------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Roboto:wght@500;700;900&amp;family=Yellowtail&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+      }
+      .background {
+        position: fixed;
+        z-index: 0;
+        width: 100%;
+        filter: blur(1.4px);
+      }
+
+      .formsParentBlock {
+        width: 400px;
+        overflow: hidden;
+        padding: 30px;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        z-index: 1;
+      }
+      .formNames {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 30px;
+      }
+      h2 {
+        cursor: pointer;
+      }
+      .forms {
+        width: 630px;
+        display: grid;
+        grid-template-columns: 400px 400px;
+        gap: 30px;
+        transition: all 0.4s;
+      }
+      #registForm {
+        position: relative;
+        width: 400px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      #entranceForm {
+        position: relative;
+        width: 400px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      #entrance {
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 0;
+        color: #929292;
+        transition: all 0.2s;
+      }
+      #registration {
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 0;
+        color: #333;
+        transition: all 0.2s;
+      }
+
+      label {
+        font-weight: bold;
+        width: 100%;
+      }
+
+      input {
+        width: 100%;
+        height: 36px;
+        padding: 8px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: none;
+        background-color: #f1f1f1;
+      }
+
+      .passwordBlock {
+        width: 98%;
+        display: flex;
+        background-color: #f1f1f1;
+        border-radius: 4px;
+        padding-right: 6px;
+      }
+      #entrancePasswordOpen,
+      #registPasswordOpen {
+        width: 7%;
+        height: auto;
+        cursor: pointer;
+      }
+
+      #registError,
+      #forgetPassword {
+        margin-bottom: 60px;
+      }
+      span {
+        color: red;
+      }
+      a {
+        color: rgb(119, 0, 155);
+        transition: all 0.2s;
+      }
+      a:hover {
+        color: #274c5b;
+      }
+
+      button {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: #274c5b;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      button:hover {
+        background-color: #162f3b;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="background" src="/registImg/Background Image.png" alt="" />
+    <div class="formsParentBlock">
+      <div class="formNames">
+        <h2 id="registration">Регистрация</h2>
+        <h2 id="entrance">Вход</h2>
+      </div>
+      <div id="forms" class="forms">
+        <form id="registForm">
+          <label for="username">Имя пользователя:</label>
+          <input type="text" id="registUsername" required />
+          <label for="email">Email:</label>
+          <input type="email" id="registEmail" required />
+          <label for="password">Пароль:</label>
+          <div class="passwordBlock">
+            <input type="password" id="registPassword" required />
+            <img id="registPasswordOpen" src="/registImg/eyeOpen.svg" alt="" />
+          </div>
+          <button type="submit">Зарегистрироваться</button>
+          <span id="registError"></span>
+        </form>
+
+        <form id="entranceForm">
+          <label for="username">Имя пользователя:</label>
+          <input type="text" id="entranceUsername" required />
+          <label for="password">Пароль:</label>
+          <div class="passwordBlock">
+            <input type="password" id="entrancePassword" required />
+            <img
+              id="entrancePasswordOpen"
+              src="/registImg/eyeOpen.svg"
+              alt=""
+            />
+          </div>
+          <span id="entranceError"></span>
+          <a href="/registration.html" id="forgetPassword">Забыли пароль ?</a>
+          <button type="submit">Войти</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const registration = document.getElementById("registration");
+      const entrance = document.getElementById("entrance");
+      const forms = document.getElementById("forms");
+
+      registration.addEventListener("click", () => {
+        forms.style.marginLeft = "0%";
+        registration.style.color = "#333";
+        entrance.style.color = "#929292";
+      });
+
+      entrance.addEventListener("click", () => {
+        forms.style.marginLeft = "-108%";
+        registration.style.color = "#929292";
+        entrance.style.color = "#333";
+      });
+
+      //Save user//
+      const users = [];
+
+      const registUsername = document.getElementById("registUsername");
+      const registEmail = document.getElementById("registEmail");
+      const registPassword = document.getElementById("registPassword");
+      const registError = document.getElementById("registError");
+
+      let userId = users.length;
+
+      function addUser() {
+        userId = users.length;
+        const user = {
+          id: userId + 1,
+          username: registUsername.value,
+          email: registEmail.value,
+          password: registPassword.value,
+        };
+        users.push(user);
+        alert(
+          `Регистрация успешна! \n \n Имя пользователя: ${registUsername.value} \n Email: ${registEmail.value}`
+        );
+
+        // window.location.replace("/main.html");
+        window.location.href = "/main.html";
+
+        localStorage.setItem("users", JSON.stringify(users));
+        registError.innerHTML = "";
+        entranceError.innerHTML = "";
+        document.getElementById("registForm").reset();
+        document.getElementById("entranceForm").reset();
+      }
+
+      document
+        .getElementById("registForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+          const localUsers = JSON.parse(localStorage.getItem("users"));
+          if (!localUsers) {
+            addUser();
+          } else {
+            let checkUser = false;
+            for (let i = 0; i < localUsers.length; i++) {
+              if (localUsers[i].username == registUsername.value) {
+                registError.innerHTML = "Имя пользователя уже используется";
+                checkUser = true;
+              }
+            }
+            if (!checkUser) {
+              addUser();
+            }
+          }
+        });
+      //*Save user*//
+
+      //Check user//
+      const entranceUsername = document.getElementById("entranceUsername");
+      const entrancePassword = document.getElementById("entrancePassword");
+      const entranceError = document.getElementById("entranceError");
+
+      document
+        .getElementById("entranceForm")
+        .addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const localUsers = JSON.parse(localStorage.getItem("users"));
+          let checkUser = false;
+          for (let i = 0; i < localUsers.length; i++) {
+            if (
+              localUsers[i].username == entranceUsername.value &&
+              localUsers[i].password == entrancePassword.value
+            ) {
+              checkUser = true;
+            }
+          }
+
+          if (checkUser) {
+            // window.location.replace("/main.html");
+            window.location.href = "/main.html";
+
+            entranceError.innerHTML = "";
+            registError.innerHTML = "";
+            document.getElementById("entranceForm").reset();
+            document.getElementById("registForm").reset();
+          } else {
+            entranceError.innerHTML = "Неверный логин или пароль";
+          }
+        });
+      //*Check user*//
+
+      //Open/Close password//
+      const entrancePasswordOpen = document.getElementById(
+        "entrancePasswordOpen"
+      );
+      const registPasswordOpen = document.getElementById("registPasswordOpen");
+
+      entrancePasswordOpen.addEventListener("click", () => {
+        if (entrancePassword.type == "password") {
+          entrancePassword.type = "text";
+          entrancePasswordOpen.src = "/registImg/eyeClose.svg";
+        } else {
+          entrancePassword.type = "password";
+          entrancePasswordOpen.src = "/registImg/eyeOpen.svg";
+        }
+      });
+      registPasswordOpen.addEventListener("click", () => {
+        if (registPassword.type == "password") {
+          registPassword.type = "text";
+          registPasswordOpen.src = "/registImg/eyeClose.svg";
+        } else {
+          registPassword.type = "password";
+          registPasswordOpen.src = "/registImg/eyeOpen.svg";
+        }
+      });
+      //*Open/Close password*//
+    </script>
+  </body>
+</html>
