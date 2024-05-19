@@ -7,31 +7,41 @@
   </head>
   <link rel="stylesheet" href="./css/style.css" />
   <style>
+    @media (max-width: 450px) {
+      .product__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-block: 2rem;
+      }
+    }
     #conteiner {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      height: 500px;
-      width: 100%;
-      gap: 10px;
+      grid-template-columns: repeat(4, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-block: 2rem;
     }
-    .quantityBlock{
-        display: flex;
-        align-items: center;
-        border: solid 1px #326174;
-        border-radius: 6px;
-        gap: 8px;
+    .quantityBlock {
+      display: flex;
+      align-items: center;
+      border: solid 1px #326174;
+      border-radius: 6px;
+      gap: 8px;
     }
-    .minsBlock{
-        background-color: #326174;
-        padding: 6px;
-        border-radius: 4px 0px 0px 4px;
-        cursor: pointer;
+    .minsBlock {
+      background-color: #326174;
+      padding: 6px;
+      border-radius: 4px 0px 0px 4px;
+      cursor: pointer;
     }
-    .plusBlock{
-        background-color: #326174;
-        padding: 6px;
-        border-radius: 0px 4px 4px 0px;
-        cursor: pointer;
+    .plusBlock {
+      background-color: #326174;
+      padding: 6px;
+      border-radius: 0px 4px 4px 0px;
+      cursor: pointer;
+    }
+    .deleteImg {
+      cursor: pointer;
     }
   </style>
   <body>

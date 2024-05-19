@@ -33,9 +33,7 @@ function addUser() {
     password: registPassword.value,
   };
   users.push(user);
-  alert(
-    `Регистрация успешна! \n \n Имя пользователя: ${registUsername.value} \n Email: ${registEmail.value}`
-  );
+  alert(`Регистрация успешна! \n \n Имя пользователя: ${registUsername.value} \n Email: ${registEmail.value}`);
 
   // window.location.replace("/main.html");
   window.location.href = "./main.html";

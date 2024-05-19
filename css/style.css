@@ -858,7 +858,7 @@ input::selection {
 
 .product__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
   gap: 2rem;
   margin-block: 2rem;
 }
@@ -866,6 +866,7 @@ input::selection {
 .product__item {
   background-color: var(--secondary-color-1);
   padding: var(--size-2);
+  border-radius: 8px;
 }
 
 .product__wrapper {
@@ -952,6 +953,12 @@ input::selection {
 @media (max-width: 450px) {
   #testimonial {
     background-position: 18%;
+  }
+  .product__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-block: 2rem;
   }
 }
 
@@ -1627,3 +1634,16 @@ input::selection {
 /*         MEDIA QUIRE FOR Mobile 450PX        */
 /* ############################################ */
 /*# sourceMappingURL=style.css.map */
+
+.notificationBlock{
+  position: fixed;
+  top: -80px;
+  right: 20px;
+  background-color: rgb(107, 106, 106);
+  color: white;
+  font-size: 15px;
+  padding: 14px;
+  border-radius: 4px;
+  transition: all 0.6s;
+  opacity: 1;
+}
