@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    #conteiner {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      height: 500px;
+      width: 100%;
+      gap: 10px;
+    }
+    .quantityBlock{
+        display: flex;
+        align-items: center;
+        border: solid 1px #326174;
+        border-radius: 6px;
+        gap: 8px;
+    }
+    .minsBlock{
+        background-color: #326174;
+        padding: 6px;
+        border-radius: 4px 0px 0px 4px;
+        cursor: pointer;
+    }
+    .plusBlock{
+        background-color: #326174;
+        padding: 6px;
+        border-radius: 0px 4px 4px 0px;
+        cursor: pointer;
+    }
+  </style>
+  <body>
+    <div id="conteiner"></div>
+
+    <script src="./js/basket.js"></script>
+  </body>
+</html>

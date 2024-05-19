@@ -874,7 +874,7 @@ input::selection {
   align-items: center;
 }
 
-.product__item img {
+.productImg {
   width: 190px;
   height: 190px;
   object-fit: cover;
@@ -904,7 +904,6 @@ input::selection {
 
 .product__discount {
   font-weight: 600;
-  font-size: 15px;
   color: #B8B8B8;
   text-decoration: line-through;
 }
@@ -929,6 +928,7 @@ input::selection {
 .btn__cart {
   padding: 0.5rem 1.5rem;
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 .content {
