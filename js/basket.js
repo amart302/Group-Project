@@ -2,6 +2,8 @@ const localBasketProducts = JSON.parse(localStorage.getItem("basketProducts"));
 
 function createBasketCards() {
   if (localBasketProducts != null) {
+    const emptyBasket = document.getElementById("emptyBasket");
+    emptyBasket.style.display = "none";
     for (let i = 0; i < localBasketProducts.length; i++) {
       const productCard = document.createElement("div");
       productCard.className = "product__item";

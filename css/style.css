@@ -10,6 +10,99 @@
   box-sizing: border-box;
 }
 
+/*Header*/
+header {
+  width: 100%;
+  height: 150px;
+  padding: 50px;
+  gap: 10px;
+  align-items: center;
+  display: flex;
+}
+
+.Container-Header-Content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.Logotype-Container {
+  display: flex;
+  align-items: center;
+}
+.Logo-Header {
+  background-image: url(../images/Logo.svg);
+  background-size: cover;
+  background-position: center;
+  width: 180px;
+  height: 50px;
+}
+
+.Buttons-nav {
+  display: flex;
+  color: #274c5b;
+  font-weight: 700;
+  size: 20px;
+  line-height: 23.44px;
+}
+.Buttons-nav div {
+  margin-left: 30px;
+}
+
+.Container-User-and-Search-System {
+  display: flex;
+  align-items: center;
+}
+
+.Search-Container {
+  display: flex;
+  align-items: center;
+}
+
+.Search-Input {
+  width: 235px;
+  height: 50px;
+  border-radius: 36px;
+  /* box-shadow: 1px 1px 8px inset; */
+  border: solid 1px gray;
+}
+
+.Logo-Search {
+  background-image: url(../images/Search\ Icon.svg);
+  background-position: center;
+  background-size: cover;
+  width: 52px;
+  height: 50px;
+  position: relative;
+  left: -50px;
+}
+
+.User-Container {
+  display: flex;
+  align-items: center;
+}
+
+.Cart-Div-Logo {
+  background-image: url(../images/Cart\ Icon.svg);
+  background-position: center;
+  background-size: cover;
+  width: 52px;
+  height: 50px;
+  position: relative;
+  left: 52px;
+}
+
+.Cart-Child-Text {
+  text-align: right;
+  width: 135px;
+  height: 50px;
+  border-radius: 36px;
+  /* box-shadow: 1px 1px 8px inset; */
+  border: solid 1px gray;
+}
+/*Header*/
+
 /*
     2. Remove default margin
   */

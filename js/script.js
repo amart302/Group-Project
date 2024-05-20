@@ -177,3 +177,11 @@ function notification() {
   }, 900);
   document.body.appendChild(notificationBlock);
 }
+
+
+////////////////////////////////
+const cartChildText = document.querySelector(".Cart-Child-Text");
+
+cartChildText.addEventListener("click", () => {
+  window.open("./basket.html")
+})
